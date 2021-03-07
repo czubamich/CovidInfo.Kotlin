@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_news"
+        android:title="Wiadomości"
+        android:icon="@drawable/ic_baseline_campaign_24"/>
+    <item
+        android:id="@+id/navigation_summary"
+        android:title="Sytuacja"
+        android:icon="@drawable/baseline_flag_black_24dp"/>
+    <item
+        android:id="@+id/navigation_regions"
+        android:title="Województwa"
+        android:icon="@drawable/ic_baseline_domain_24"/>
+</menu>

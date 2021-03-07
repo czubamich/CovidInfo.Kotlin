@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/navigation_prepare">
+
+    <fragment
+        android:id="@+id/navigation_summary"
+        android:name="com.mczuba.covidwpolsce.vm.SummaryFragment"
+        android:label="fragment_summary"
+        tools:layout="@layout/fragment_summary" />
+    <fragment
+        android:id="@+id/navigation_news"
+        android:name="com.mczuba.covidwpolsce.vm.NewsFragment"
+        android:label="MapFragment"
+        tools:layout="@layout/fragment_news"/>
+    <fragment
+        android:id="@+id/navigation_regions"
+        android:name="com.mczuba.covidwpolsce.vm.RegionsFragment"
+        android:label="RegionsFragment"
+        tools:layout="@layout/fragment_regions">
+        <action
+            android:id="@+id/action_navigation_regions_to_regionDetailFragment"
+            app:destination="@id/regionDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_prepare"
+        android:name="com.mczuba.covidwpolsce.vm.PrepareFragment"
+        android:label="PrepareFragment"
+        tools:layout="@layout/fragment_prepare">
+
+        <action
+            android:id="@+id/action_prepareFragment_to_summaryFragment"
+            app:destination="@id/navigation_summary"
+            app:popUpTo="@id/navigation_summary"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/regionDetailFragment"
+        android:name="com.mczuba.covidwpolsce.vm.RegionDetailFragment"
+        android:label="RegionDetailFragment"
+        tools:layout="@layout/fragment_regiondetail">
+        <argument
+            android:name="regionArg"
+            app:argType="string" />
+    </fragment>
+</navigation>

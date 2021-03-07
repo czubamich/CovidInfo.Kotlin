@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:animateLayoutChanges="true"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toTopOf="@+id/nav_view"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navGraph="@navigation/navigation_main"
+            tools:layout="@layout/fragment_summary" />
+
+        <me.ibrahimsn.lib.SmoothBottomBar
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            app:backgroundColor="@color/colorPrimaryDark"
+            app:duration="300"
+            app:iconSize="32dp"
+            app:indicatorColor="@color/colorPrimary"
+            app:indicatorRadius="16dp"
+            app:itemPadding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:menu="@menu/menu_nav_menu"
+            app:sideMargins="8dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

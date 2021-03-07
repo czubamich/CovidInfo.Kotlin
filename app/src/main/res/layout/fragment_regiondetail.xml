@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.mczuba.covidwpolsce.vm.RegionDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:paddingBottom="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/NewDataStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:text="@{@string/format_updated(viewmodel.latestUpdate)}"/>
+                <TextView
+                    style="@style/RegionStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:text="@{viewmodel.region.name}"
+                    tools:text="kujawsko-pomorskie"/>
+                <TextView
+                    style="@style/NewDataStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewmodel.latestDate}"/>
+                <!-- Przypadków -->
+                <TextView
+                    style="@style/FieldStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Przypadków"/>
+                <TextView
+                    style="@style/DataStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/format_number(viewmodel.entry.cases)}"
+                    tools:text="10000000"/>
+                <TextView
+                    style="@style/NewDataStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/format_numbersigned(viewmodel.entry.newCases)}"
+                    tools:text="+100000" />
+                <!-- Zgonów -->
+                <TextView
+                    style="@style/FieldStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#222268"
+                    android:text="Zgonów"/>
+                <TextView
+                    style="@style/DataStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/format_number(viewmodel.entry.deaths)}"
+                    tools:text="10000000"/>
+                <TextView
+                    style="@style/NewDataStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/format_numbersigned(viewmodel.entry.newDeaths)}"
+                    tools:text="+100000" />
+                <!-- Wyzdrowień -->
+                <TextView
+                    style="@style/FieldStyle"
+                    android:textColor="#40AA40"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Wyzdrowień"/>
+                <TextView
+                    style="@style/DataStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/format_number(viewmodel.entry.recovered)}"
+                    tools:text="10000000"/>
+                <TextView
+                    style="@style/NewDataStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/format_numbersigned(viewmodel.entry.newRecovered)}"
+                    tools:text="+100000" />
+                <com.anychart.AnyChartView
+                    android:id="@+id/chart_active"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    />
+                <com.anychart.AnyChartView
+                    android:id="@+id/chart_cases"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    />
+                <com.anychart.AnyChartView
+                    android:id="@+id/chart_new_cases"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    />
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
